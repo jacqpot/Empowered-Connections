@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :connections
-  has_many :personofinterests, through: :connections
+  has_many :person_of_interests, through: :connections
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and 
