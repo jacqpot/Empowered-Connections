@@ -1,0 +1,2 @@
+class PersonOfInterest < ApplicationRecord
+end
