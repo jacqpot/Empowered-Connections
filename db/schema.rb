@@ -16,8 +16,11 @@ ActiveRecord::Schema.define(version: 2020_08_17_162247) do
     t.string "type"
     t.integer "user_id"
     t.integer "person_of_interest_id"
+    t.datetime "initial_contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_of_interest_id"], name: "index_connections_on_person_of_interest_id"
+    t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
   create_table "person_of_interests", force: :cascade do |t|

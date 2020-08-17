@@ -4,7 +4,7 @@ class ConnectionsController < ApplicationController
         @connection = Connection.new
     end
     def create 
-        @connection = Connection.new(connection_params)
+        @connection = current_user.connections.build(connection_params)
         if @connection.save 
             redirect_to 'application#show'
 
@@ -36,6 +36,6 @@ class ConnectionsController < ApplicationController
       private
     
       def Connection_params
-        params.require(:Connection).permit(:type)
+        params.require(:Connection).permit(:type, person_of_interest_id: [])
       end
 end

@@ -1,7 +1,8 @@
 class Connection < ApplicationRecord
     belongs_to :user 
-    belongs to :person_of_interest
+    belongs_to :person_of_interest
     validates :type, presence: true 
+    accepts_nested_attributes_for :person_of_interest
 
     def Person_of_interest_name=(name)
         self.personofinterest = PersonOfInterest.find_or_create_by(name: name)

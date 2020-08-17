@@ -1,9 +1,11 @@
 class PersonOfInterest < ApplicationRecord
     has_many :connections 
+    has_many :users, through: :connections 
     validates :name, presence: true
     validates :email, presence: true
-    validates :phone_number, presence: true, default: 0000000000
+    validates :phone_number, presence: true
    validates :occupation, presence: true 
     validates :goals, presence: true
+
 
 end
