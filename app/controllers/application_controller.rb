@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
     def show 
         render 'users/show'
     end
+    
 end
