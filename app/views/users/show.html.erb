@@ -1,8 +1,9 @@
 <%= link_to 'logout', destroy_user_session_path, method: :delete %>
 
 
-<%= form_for @connection do |f| %>
-  <%= f.collection_select :connection_type, Connection.all, :type, :type %>
+<%= form_for(@connection) do |f| %>
+    <%= f.label :type %>
+  <%= f.text_field :type %>
   <%= f.fields_for :person_of_interest do |p| %>
         <%= p.text_field :name %>
         <%= p.text_field :email %>
