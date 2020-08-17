@@ -1,15 +1,4 @@
 <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+<%= link_to 'new connection', new_connection_path %>
 
 
-<%= form_for(@connection) do |f| %>
-    <%= f.label :type %>
-  <%= f.text_field :type %>
-  <%= f.fields_for :person_of_interest do |p| %>
-        <%= p.text_field :name %>
-        <%= p.text_field :email %>
-        <%= p.text_field :phone_number%>
-        <%= p.text_field :occupation %>
-        <%= p.text_field :goals %>
-  <%= f.submit %>
-  <% end %>
-<% end %>

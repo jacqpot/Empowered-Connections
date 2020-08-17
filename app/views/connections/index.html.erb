@@ -1,0 +1,10 @@
+<h1> My connections </h1>
+<br>
+<h2> <%= link_to 'New Connection', new_connection_path %></h2>
+<ul>
+    <% @connections.each do |connection|%>
+        <li>
+            <%= connection.type %>
+        </li>
+    <% end %>
+</ul>

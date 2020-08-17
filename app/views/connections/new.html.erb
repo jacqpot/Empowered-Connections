@@ -1,0 +1,25 @@
+<h1> Who'd you meet? </h1>
+
+<%= form_for @connection do |f| %>
+    <%= f.label "Type of connection" %>
+  <%= f.text_field :type %>
+
+  <%= f.fields_for :person_of_interest do |p| %>
+        
+        <%= p.label :name, "Name" %>
+        <%= p.text_field :name %>
+        <br>
+        <%= p.label :email, "Email" %>
+        <%= p.text_field :email %>
+        <br>
+        <%= p.label :phone_number, "Phone number"%>
+        <%= p.text_field :phone_number%>
+        <br>
+        <%= p.label :occupation, "occupation" %>
+        <%= p.text_field :occupation %>
+        <br>
+        <%= p.label :goals, "goals" %>
+        <%= p.text_field :goals %>
+    <% end %>
+  <%= f.submit %>
+<% end %>
