@@ -4,7 +4,7 @@ class Connection < ApplicationRecord
     accepts_nested_attributes_for :person_of_interest
     
     
-    validates :type, presence: true 
+    validates :description, presence: true 
     validates_associated :person_of_interest
     
     
