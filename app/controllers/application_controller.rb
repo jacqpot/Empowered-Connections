@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
     end
 
     def show 
+        @connections = Connection.all 
+        @person_of_interest = PersonOfInterest.new 
         render 'users/show'
     end
     
