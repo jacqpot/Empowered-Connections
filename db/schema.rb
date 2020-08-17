@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_08_17_162247) do
 
   create_table "connections", force: :cascade do |t|
-    t.string "type"
+    t.string "description"
     t.integer "user_id"
     t.integer "person_of_interest_id"
     t.datetime "initial_contact"

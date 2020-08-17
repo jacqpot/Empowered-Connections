@@ -1,4 +1,5 @@
 class ConnectionsController < ApplicationController
+    # before_action :set_connection 
     def index 
         @connections = Connection.all 
     end
@@ -8,7 +9,7 @@ class ConnectionsController < ApplicationController
     
     def new 
         @connection = Connection.new
-        @connection.person_of_interest.new
+        @connection.build_person_of_interest
     end
     def create 
         @connection = current_user.connections.new connection_params 
@@ -44,9 +45,9 @@ class ConnectionsController < ApplicationController
 
     private
     def set_connection
-        
+        @connection = Connection.find(params[:id])
     end
     def connection_params
-    params.require(:connection).permit(:type, person_of_interest_attributes: [:name, :email, :phone_number, :occupation, :goals])
+    params.require(:connection).permit(:description, user:[:current_user], person_of_interest_attributes: [:name, :email, :phone_number, :occupation, :goals])
     end
 end
