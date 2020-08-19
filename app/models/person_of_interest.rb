@@ -1,5 +1,5 @@
 class PersonOfInterest < ApplicationRecord
-    has_many :connections 
+    has_many :connections, dependent: :destroy 
     has_many :users, through: :connections 
     validates :name, presence: true
     validates :email, presence: true

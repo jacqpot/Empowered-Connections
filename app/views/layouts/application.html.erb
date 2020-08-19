@@ -7,18 +7,38 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 
   </head>
 
   <body>
-    <div>
-      <nav>
-      <%= if signed_in? do  %>
-        <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-        <% end %>
-      <% end %>
-      </nav>
-    </div>
+  <% if current_user %>
+    <header class="top-nav">
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper nav-link">
+            <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+            <%= link_to 'My connections', connections_path, method: :get %>
+          </div>
+        </nav>
+      </div>
+    </header>
+  <% else %>
+    <header class="top-nav">
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-    <%= yield %>
+  <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   </body>
 </html>

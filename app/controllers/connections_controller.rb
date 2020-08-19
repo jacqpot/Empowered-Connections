@@ -1,7 +1,11 @@
 class ConnectionsController < ApplicationController
      before_action :set_connection, only: [:show, :edit, :update, :destroy] 
     def index 
-        @connections = Connection.all 
+        if params[:user_id]
+            @connections = Connection.all 
+        else
+            @connections = Connection.all 
+        end
     end
     def show 
 
@@ -12,10 +16,10 @@ class ConnectionsController < ApplicationController
         @connection.build_person_of_interest
     end
     def create 
-        @connection = current_user.connections.new connection_params 
+        @connection = current_user.connections.new(connection_params) 
         #@connection = current_user.connections.build(connection_params)
         if @connection.save 
-            redirect_to connection_person_of_interest_path(@connection.id, person_of_interest.id)
+            redirect_to connection_person_of_interest_path(@connection.id, @connection.person_of_interest.id)
 
         end
     end

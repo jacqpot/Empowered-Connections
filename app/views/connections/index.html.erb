@@ -4,7 +4,9 @@
 <ul>
     <% @connections.each do |connection|%>
         <li>
-            <%= connection.descripion %>
+        
+            <%= link_to "#{connection.description}", connection_person_of_interest_path(connection, connection.person_of_interest_id) %>
+
         </li>
     <% end %>
 </ul>

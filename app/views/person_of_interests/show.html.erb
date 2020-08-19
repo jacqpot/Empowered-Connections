@@ -1,1 +1,16 @@
-<%= @person_of_interest.name %>
+<h1> <%= @person_of_interest.name %></h1>
+<%@person_of_interest.connections.each do |connection|%>
+     <h4> <%= connection.description %></h4>
+        <%= button_to "forget this person", connection_person_of_interest_path(connection.id, @person_of_interest.id), :method => "delete", :class => 'destroy'%>
+        <%= link_to "Edit their info", edit_connection_person_of_interest_path(connection.id, @person_of_interest.id), :class =>"update" %>
+    <% end %>
+<br>
+<%= @person_of_interest.email %>
+<br>
+<%= @person_of_interest.phone_number %>
+<br>
+<%= @person_of_interest.occupation %>
+<br>
+<%= @person_of_interest.goals %>
+
+
