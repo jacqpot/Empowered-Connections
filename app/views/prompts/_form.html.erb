@@ -1,0 +1,7 @@
+<%= form_for [@person_of_interest, @prompt] do |f| %>
+
+<%= f.text_field :description, placeholder: (@card.errors.full_messages_for(:description).first || "Enter follow up ") %>
+<%= f.text_field :due_date, placeholder: (@card.errors.full_messages_for(:due_date).first || "when is this due") %>
+<%= f.text_field :notes, placeholder: (@card.errors.full_messages_for(:notes).first || "Things to remember") %>
+<%= f.submit %>
+<% end %>
