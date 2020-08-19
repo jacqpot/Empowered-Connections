@@ -1,0 +1,12 @@
+<ul>
+    <li>
+
+    </li>
+    <% @connections.each do |connection|%>
+        <li>
+
+            <%= link_to connection.person_of_interest.name, connection_person_of_interest_path(connection, connection.person_of_interest_id) %>
+
+        </li>
+    <% end %>
+</ul>

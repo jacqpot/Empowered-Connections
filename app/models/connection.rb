@@ -16,4 +16,9 @@ class Connection < ApplicationRecord
       def person_of_interest_name
          self.personofinterest ? self.personofinterest.name : nil
       end
+    scope :work, -> {self.where(description: "Work")}
+    scope :family, -> {self.where(description: "Family")}
+    scope :church, -> {self.where(description: "Church")}
+    scope :entrepenurship, -> {self.where(description: "Entrepenurship")}
+    scope :friends, -> {self.where(description: "Friends")}
 end

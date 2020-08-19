@@ -1,9 +1,12 @@
 <h1> Who'd you meet? </h1>
 
 <%= form_for @connection do |f| %>
-    <%= f.label "Type of connection" %>
-  <%= f.text_field :description %>
+    <%= f.label :description %>
+    
+  <%= f.select :description, ["Family","Work","Friends", "Church", "Entrepenurship"]%>
+ 
 
+<br>
   <%= f.fields_for :person_of_interest do |p| %>
         Name: <%= p.text_field :name %>
         <br>

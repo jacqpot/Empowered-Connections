@@ -3,11 +3,20 @@
 <br>
 <h2> <%= link_to 'New Connection', new_connection_path %></h2>
 <ul>
-    <% @connections.each do |connection|%>
-        <li>
-        
-            <%= link_to connection.person_of_interest.name, connection_person_of_interest_path(connection, connection.person_of_interest_id) %>
 
+        <li>
+            <%= link_to "Work", connections_work_path %>
         </li>
-    <% end %>
+        <li> 
+            <%= link_to "Family", connections_family_path %>
+        </li>
+        <li>
+            <%= link_to "Friends", connections_friends_path %>
+        </li>
+        <li>
+            <%= link_to "Church", connections_church_path %>
+        </li>
+        <li>
+            <%= link_to "Entrepenurship", connections_entrepenurship_path %>
+        </li>
 </ul>

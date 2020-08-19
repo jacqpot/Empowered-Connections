@@ -2,7 +2,9 @@ class ConnectionsController < ApplicationController
      before_action :set_connection, only: [:show, :edit, :update, :destroy] 
     def home 
         if  current_user
+            @work = current_user.connections.where(description: "Work")
             @connections = current_user.connections
+            @current_user = current_user
         else 
             @connections = Connection.all
         end
@@ -51,6 +53,27 @@ class ConnectionsController < ApplicationController
     @connection.destroy
     flash[:notice] = "Connection deleted."
     redirect_to 'application#show'
+    end
+    def work
+
+        @connections = Connection.work
+        render :index
+    end
+    def family
+        @connections = Connection.family
+        render :index
+    end
+    def friends
+        @connections = Connection.friends
+        render :index
+    end
+    def entrepenurship
+        @connections = Connection.entrepenurship
+        render :index
+    end
+    def church
+        @connections = Connection.church 
+        render :index
     end
 
     private
