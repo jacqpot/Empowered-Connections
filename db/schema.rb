@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_162247) do
+ActiveRecord::Schema.define(version: 2020_08_19_162946) do
 
   create_table "connections", force: :cascade do |t|
     t.string "description"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2020_08_17_162247) do
     t.string "phone_number"
     t.string "occupation"
     t.string "goals"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "prompts", force: :cascade do |t|
+    t.integer "person_of_interest_id"
+    t.string "description"
+    t.datetime "due_date"
+    t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

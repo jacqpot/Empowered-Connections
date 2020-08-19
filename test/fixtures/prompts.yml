@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_of_interest_id: 1
+  description: MyString
+  due_date: 2020-08-19 10:29:46
+  notes: MyString
+  string: MyString
+
+two:
+  person_of_interest_id: 1
+  description: MyString
+  due_date: 2020-08-19 10:29:46
+  notes: MyString
+  string: MyString
