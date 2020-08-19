@@ -1,0 +1,13 @@
+<h1> <%= current_user.email%> </h1>
+<h1> My connections </h1>
+<br>
+<h2> <%= link_to 'New Connection', new_connection_path %></h2>
+<ul>
+    <% @connections.each do |connection|%>
+        <li>
+        
+            <%= link_to connection.person_of_interest.name, connection_person_of_interest_path(connection, connection.person_of_interest_id) %>
+
+        </li>
+    <% end %>
+</ul>
