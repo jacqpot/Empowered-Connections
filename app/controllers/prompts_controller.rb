@@ -3,28 +3,18 @@ class PromptsController < ApplicationController
     def index 
         @prompts = current_user.prompts.all
     end
-
+    def show 
+        
+    end
     def new 
-        if params[:person_of_interest_id]
-            set_person_of_interest
-                new_prompt 
-        else
-            new_prompt 
-        end
-
+        @prompt = Prompt.new 
     end
     def create 
-        if params[:person_of_interest_id]
-
-            set_person_of_interest
-            poi = @person_of_interest.dup
-            @prompt = poi.build_prompt(prompt_params)
-
-            if @prompt.save 
-                redirect_to person_of_interest_path(@person_of_interest)
-            else 
-                render :new
-            end
+        @prompt = Prompt.new(prompt_params)
+        if @prompt.save 
+            redirect_to person_of_interest_path(@prompt.person_of_interest)
+        else 
+            redirect_to person_of_interest_path
         end
     end
     def edit 
@@ -41,13 +31,12 @@ class PromptsController < ApplicationController
     def set_prompt
         @prompt = Prompt.find(params[:id])
     end
+    def prompt_params
+        params.require(:prompt).permit(:person_of_interest_id, :description, :due_date, :notes)
+
+    end
     def set_person_of_interest
         @person_of_interest = PersonOfInterest.find(params[:person_of_interest_id])
     end
-    def new_prompt 
-        @prompt = Prompt.new 
-    end
-    def prompt_params 
-        params.require(:prompt).permit(:description, :due_date, :notes)
-    end
+
 end

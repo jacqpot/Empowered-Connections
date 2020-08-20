@@ -1,13 +1,7 @@
 class ConnectionsController < ApplicationController
      before_action :set_connection, only: [:show, :edit, :update, :destroy] 
     def home 
-        if  current_user
-            @work = current_user.connections.where(description: "Work")
-            @connections = current_user.connections
-            @current_user = current_user
-        else 
-            @connections = Connection.all
-        end
+        
     end
      
      def index 

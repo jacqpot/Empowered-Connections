@@ -1,7 +1,7 @@
 class PersonOfInterestsController < ApplicationController
     before_action :set_person_of_interest, only: [:show, :destroy, :edit, :update]
     def show
-
+        @prompt = Prompt.new 
     end
     def index 
         

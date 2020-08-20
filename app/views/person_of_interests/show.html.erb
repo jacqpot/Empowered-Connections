@@ -14,3 +14,13 @@
 <%= @person_of_interest.goals %>
 
 
+<%= render partial: 'prompts/form', locals: {person_of_interest: @person_of_interest} %>
+<% if !@person_of_interest.prompts.empty?  %>
+    <ul>
+    <% @person_of_interest.prompts.each do |prompt| %>
+        <li>
+            <%= render partial: "prompts/show", locals: {prompt: prompt} %>
+        </li>
+    <% end %>
+    </ul>
+<% end %>
