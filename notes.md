@@ -11,4 +11,9 @@ wed
         -finish validations
         -include errors
         dry up code.
-        
+
+    <% if flash[:errors] %>
+   <% flash[:errors].each do |error|   %>
+   <h5 class="red"> <%= error %></h5>
+  <% end %>
+<% end %>
