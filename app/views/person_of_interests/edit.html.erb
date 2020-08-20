@@ -1,6 +1,7 @@
 <h1> Edit </h1>
 
 <%= form_for @person_of_interest do |f| %>
+<br>
     <%= f.label "name" %>
     <%= f.text_field :name %>
 
@@ -17,5 +18,6 @@
     <%= f.label "goals"%>
     <%= f.text_field :goals %>
     <br>
+        <%= flash[:errors] if flash[:errors] %>
     <%= f.submit %>
 <% end %>

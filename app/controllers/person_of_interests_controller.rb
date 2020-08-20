@@ -16,8 +16,12 @@ class PersonOfInterestsController < ApplicationController
         
     end
     def update 
-        @person_of_interest.update(person_of_interest_params)
+        if @person_of_interest.update(person_of_interest_params)
         redirect_to person_of_interest_path(@person_of_interest)
+        else
+        flash.now[:errors] = "please make sure each field is filled out correctly"
+        render :edit
+        end 
     end
 
     def destroy

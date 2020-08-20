@@ -22,11 +22,12 @@ class ConnectionsController < ApplicationController
         @connection.build_person_of_interest
     end
     def create 
-        #@connection = current_user.connections.find_or_create_by(connection_params) 
         @connection = current_user.connections.build(connection_params)
+         
         if @connection.save 
             redirect_to connection_person_of_interest_path(@connection.id, @connection.person_of_interest.id)
         else 
+            flash.now[:errors] = "please make sure each field is filled out correctly"
             render :new 
 
         end
@@ -39,6 +40,8 @@ class ConnectionsController < ApplicationController
     if @connection.update(connection_params)
         redirect_to root 
     else
+        flash.now[:errors] = "please make sure each field is filled out correctly"
+            render :new
         render :edit
     end
     end
