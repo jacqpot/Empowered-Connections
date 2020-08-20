@@ -33,11 +33,12 @@ class PromptsController < ApplicationController
         @prompt = Prompt.find(params[:id])
     end
     def prompt_params
-        params.require(:prompt).permit(:person_of_interest_id, :description, :due_date, :notes)
+        params.require(:prompt).permit(:person_of_interest_id, :user_id, :description, :due_date, :notes)
 
     end
     def set_person_of_interest
         @person_of_interest = PersonOfInterest.find(params[:person_of_interest_id])
     end
+
 
 end

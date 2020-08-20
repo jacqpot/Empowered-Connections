@@ -5,8 +5,8 @@ wed
     
 
     thursday
-        -add user_id to prompts table
-        -add that in the prompt perams
+        **-add user_id to prompts table
+        **-add that in the prompt perams
 
         -finish validations
         -include errors

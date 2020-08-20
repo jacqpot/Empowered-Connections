@@ -3,10 +3,12 @@
 
     </li>
     <% @connections.each do |connection|%>
+    <% if has_permission(connection) %>
         <li>
 
             <%= link_to connection.person_of_interest.name, connection_person_of_interest_path(connection, connection.person_of_interest_id) %>
 
         </li>
+    <% end %>
     <% end %>
 </ul>

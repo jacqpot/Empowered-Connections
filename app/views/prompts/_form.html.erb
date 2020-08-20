@@ -1,5 +1,6 @@
 <%= form_for @prompt do |f| %>
 <%= f.hidden_field :person_of_interest_id, :value => person_of_interest.id %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
 <%= f.text_field :description, placeholder: (@prompt.errors.full_messages_for(:description).first || "Enter follow up ") %>
 <%= f.date_field :due_date, placeholder: (@prompt.errors.full_messages_for(:due_date).first || "mm/dd/yy") %>
