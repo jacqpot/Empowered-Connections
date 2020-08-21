@@ -19,7 +19,7 @@
 <%= render partial: 'prompts/form', locals: {person_of_interest: @person_of_interest} %>
 <% if !@person_of_interest.prompts.empty?  %>
     <ul>
-    <% @person_of_interest.prompts.each do |prompt| %>
+    <% @prompts.each do |prompt| %>
         <%if has_permission(prompt)%>
         <li>
             <%= render partial: "prompts/show", locals: {prompt: prompt} %>

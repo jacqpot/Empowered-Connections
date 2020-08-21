@@ -20,3 +20,21 @@
             <%= link_to "Entrepenurship", connections_entrepenurship_path %>
         </li>
 </ul>
+
+<div>
+        <% @prompts.each do |p| %>
+    <ul>
+        <li>
+        <%= p.person_of_interest.name %>
+        <br>
+            <%= p.description %>
+            <br>
+            <%= p.due_date %>
+            <br> 
+            <%= p.notes %>
+        </li>
+    </ul>
+    <% end %>
+
+
+</div>

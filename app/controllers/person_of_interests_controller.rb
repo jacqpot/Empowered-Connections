@@ -1,7 +1,10 @@
 class PersonOfInterestsController < ApplicationController
     before_action :set_person_of_interest, only: [:show, :destroy, :edit, :update]
+    before_action :due?, only: [:show]
     def show
         @prompt = Prompt.new 
+        @prompts = @person_of_interest.prompts.order('due_date asc')
+
     end
     def index 
         
@@ -29,13 +32,18 @@ class PersonOfInterestsController < ApplicationController
         redirect_to connections_path
 
     end
-    private 
 
+    private 
+    
     def set_person_of_interest
         @person_of_interest = PersonOfInterest.find(params[:id])
     end
     def person_of_interest_params
         params.require(:person_of_interest).permit(:name, :email, :phone_number, :occupation, :goals, :connection)
-
     end
+    def due? 
+       @person_of_interest.prompts.each { |t| t.past_due }
+    end
+    
+
 end

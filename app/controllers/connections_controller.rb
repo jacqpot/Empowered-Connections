@@ -1,7 +1,8 @@
 class ConnectionsController < ApplicationController
-     before_action :set_connection, only: [:show, :edit, :update, :destroy] 
+     before_action :set_connection, only: [:edit, :update, :destroy] 
+     before_action :due?, only: [:home]
     def home 
-        
+        @prompts = current_user.prompts.order("due_date")
     end
      
      def index 
@@ -13,10 +14,7 @@ class ConnectionsController < ApplicationController
      end
         #@connections = current_user.connections
     
-    def show 
 
-    end
-    
     def new 
         @connection = Connection.new
         @connection.build_person_of_interest
@@ -79,5 +77,8 @@ class ConnectionsController < ApplicationController
     end
     def connection_params
     params.require(:connection).permit(:description, user:[:current_user], person_of_interest_attributes: [:name, :email, :phone_number, :occupation, :goals])
+    end
+    def due? 
+        current_user.prompts.each { |t| t.past_due }
     end
 end

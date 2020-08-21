@@ -6,13 +6,9 @@ class ApplicationController < ActionController::Base
         request.env['omniauth.origin'] || root_path
     end
 
-    # def show 
-    #     @connections = Connection.all 
-    #     @person_of_interest = PersonOfInterest.new 
-    #     @connection = Connection.new 
-    #     render 'users/show'
-    # end
     def has_permission(object)
         object.user == current_user 
     end
+    private 
+
 end

@@ -10,12 +10,12 @@ class Connection < ApplicationRecord
     
     
     def Person_of_interest_name=(attributes)
-        self.personofinterest = PersonOfInterest.find_or_create_by(attributes)
-      end
-    
-      def person_of_interest_name
-         self.personofinterest ? self.personofinterest.name : nil
-      end
+      self.personofinterest = PersonOfInterest.find_or_create_by(attributes)
+    end
+  
+    def person_of_interest_name
+        self.personofinterest ? self.personofinterest.name : nil
+    end
     scope :work, -> {self.where(description: "Work")}
     scope :family, -> {self.where(description: "Family")}
     scope :church, -> {self.where(description: "Church")}
