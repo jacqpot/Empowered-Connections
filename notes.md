@@ -8,8 +8,8 @@ wed
         **-add user_id to prompts table
         **-add that in the prompt perams
 
-        -finish validations
-        -include errors
+        **-finish validations
+        -**include errors
         dry up code.
 
     <% if flash[:errors] %>

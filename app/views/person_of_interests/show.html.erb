@@ -2,29 +2,42 @@
 <%@person_of_interest.connections.each do |connection|%>
     <% if has_permission(connection) %>
      <h4> <%= connection.description %></h4>
-        <%= button_to "forget this person", connection_person_of_interest_path(connection.id, @person_of_interest.id), :method => "delete", :class => 'destroy'%>
+        <%= link_to "forget this person", connection_person_of_interest_path(connection.id, @person_of_interest.id), :method => "delete", :class => 'destroy'%>
         <%= link_to "Edit their info", edit_connection_person_of_interest_path(connection.id, @person_of_interest.id), :class =>"update" %>
     <% end %>
 <% end %>
-<br>
-<%= @person_of_interest.email %>
-<br>
-<%= @person_of_interest.phone_number %>
-<br>
-<%= @person_of_interest.occupation %>
-<br>
-<%= @person_of_interest.goals %>
+<div class="grid-contrainer">
+    <div class="grid-item 1">
+        <%= @person_of_interest.email %>
+    </div>
 
+    <div class="grid-item 2">
+        <%= @person_of_interest.phone_number %>
+    </div>
 
+    <div class="grid-item 3">
+     <%= @person_of_interest.occupation %>
+    </div>
+
+    <div class="grid-item 4">
+        <%= @person_of_interest.goals %>
+    </div>
+
+</div>
+<div class="grid-container">
 <%= render partial: 'prompts/form', locals: {person_of_interest: @person_of_interest} %>
+<br>
 <% if !@person_of_interest.prompts.empty?  %>
     <ul>
     <% @prompts.each do |prompt| %>
         <%if has_permission(prompt)%>
         <li>
-            <%= render partial: "prompts/show", locals: {prompt: prompt} %>
+            <div class="grid-item">
+                <%= render partial: "prompts/show", locals: {prompt: prompt} %>
+            </div>
         </li>
         <% end %>
     <% end %>
     </ul>
 <% end %>
+</div>

@@ -1,20 +1,20 @@
 <%= form_for @person_of_interest do |f| %>
 <br>
     <%= f.label "name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'field' %>
 
     <br>
     <%= f.label "email" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'field' %>
     <br>
     <%= f.label "phone_number" %>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class: 'field' %>
     <br>
     <%= f.label "occupation" %>
-    <%= f.text_field :occupation %>
+    <%= f.text_field :occupation, class: 'field' %>
     <br>
     <%= f.label "goals"%>
-    <%= f.text_field :goals %>
+    <%= f.text_field :goals, class: 'field' %>
     <br>
         <%= flash[:errors] if flash[:errors] %>
     <%= f.submit %>
