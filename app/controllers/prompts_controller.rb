@@ -1,5 +1,6 @@
 class PromptsController < ApplicationController
     before_action :set_prompt, only: [:show, :edit, :update, :destroy]
+    
     def index 
         
         @prompts = current_user.prompts.all
@@ -26,8 +27,8 @@ class PromptsController < ApplicationController
 
     end
     def destroy 
-        @prompt.destroy
         flash[:notice] = "Prompt Removed."
+        @prompt.destroy
         redirect_to person_of_interest_path
     end
 

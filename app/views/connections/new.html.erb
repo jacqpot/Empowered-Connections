@@ -7,15 +7,15 @@
   <%= f.select :description, ["Family","Work","Friends", "Church", "Entrepenurship"]%>
 <br>
   <%= f.fields_for :person_of_interest do |p| %>
-        Name: <%= p.text_field :name %>
+        Name: <%= p.text_field :name, class: 'field' %>
         <br>
-        Email:<%= p.text_field :email %>
+        Email:<%= p.text_field :email, class: 'field' %>
         <br>
-        Phone Number: <%= p.text_field :phone_number%>
+        Phone Number: <%= p.text_field :phone_number, class: 'field'%>
         <br>
-        Occupation: <%= p.text_field :occupation %>
+        Occupation: <%= p.text_field :occupation, class: 'field' %>
         <br>
-        Goals: <%= p.text_field :goals %>
+        Goals: <%= p.text_field :goals, class: 'field' %>
     <% end %>
     <%= hidden_field_tag(:user_id, params[:user_id]) %>
   <%= f.submit %>

@@ -7,33 +7,36 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
- 
   </head>
 
   <body>
   <% if current_user %>
-    <header class="top-nav">
-      <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper nav-link">
+    
+      <div class="topnav">
+            <div class="topnav a">
             <%= link_to 'logout', destroy_user_session_path, method: :delete %>
             <%= link_to 'My connections', root_path, method: :get %>
-          </div>
-        </nav>
+            </div>
       </div>
-    </header>
+    
   <% else %>
-    <header class="top-nav">
-      <div class="navbar-fixed">
+    
+      <div class="topnav">
         <nav>
           <div class="nav-wrapper">
             <%= link_to 'logout', destroy_user_session_path, method: :delete %>
           </div>
         </nav>
       </div>
-    </header>
+
 
   <% end %>
+    <div class="title">
+      <h1>Empowered Connections</h1>
+    </div>
+    <div class="e">
+
+    </div>
     <div class="container">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
@@ -41,8 +44,9 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-
-      <%= yield %>
+        <div class="content" >
+          <%= yield %>
+        </div>
     </div>
 
   </body>
