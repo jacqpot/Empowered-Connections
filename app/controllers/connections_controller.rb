@@ -12,8 +12,7 @@ class ConnectionsController < ApplicationController
             @connections = Connection.all
         end
      end
-        #@connections = current_user.connections
-    
+
 
     def new 
         @connection = Connection.new

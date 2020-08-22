@@ -2,8 +2,13 @@ class PersonOfInterestsController < ApplicationController
     before_action :set_person_of_interest, only: [:show, :destroy, :edit, :update]
     before_action :due?, only: [:show]
     def show
-        @prompt = Prompt.new 
-        @prompts = @person_of_interest.prompts.order('due_date asc')
+        if @person_of_interest.users.include?(current_user)
+            @prompt = Prompt.new 
+            @prompts = @person_of_interest.prompts.order('due_date asc')
+
+        else
+            redirect_to root_path
+        end
 
     end
     def index 
@@ -36,6 +41,7 @@ class PersonOfInterestsController < ApplicationController
     private 
     
     def set_person_of_interest
+        
         @person_of_interest = PersonOfInterest.find(params[:id])
     end
     def person_of_interest_params
@@ -44,6 +50,8 @@ class PersonOfInterestsController < ApplicationController
     def due? 
        @person_of_interest.prompts.each { |t| t.past_due }
     end
-    
+    # def has_permission
+    #     @person_of_interest = current_user.connections.where(person_of_interest_id == params[:id])
+    # end
 
 end

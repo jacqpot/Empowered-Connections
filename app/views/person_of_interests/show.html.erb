@@ -2,7 +2,7 @@
 <%@person_of_interest.connections.each do |connection|%>
     <% if has_permission(connection) %>
      <h4> <%= connection.description %></h4>
-        <%= link_to "forget this person", connection_person_of_interest_path(connection.id, @person_of_interest.id), :method => "delete", :class => 'destroy'%>
+        <%= link_to "Forget this person", connection_person_of_interest_path(connection.id, @person_of_interest.id), :method => "delete", :class => 'destroy'%>
         <%= link_to "Edit their info", edit_connection_person_of_interest_path(connection.id, @person_of_interest.id), :class =>"update" %>
     <% end %>
 <% end %>
