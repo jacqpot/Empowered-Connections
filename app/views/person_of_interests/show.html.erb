@@ -30,16 +30,14 @@
 </div>
 
 <% if !@person_of_interest.prompts.empty?  %>
-    <ul>
-    <% @prompts.each do |prompt| %>
-        <%if has_permission(prompt)%>
-        <li>
-            <div>
-                <%= render partial: "prompts/show", locals: {prompt: prompt} %>
-            </div>
-        </li>
+    <div class="grid-container">
+        <% @prompts.each do |prompt| %>
+            <%if has_permission(prompt)%>
+                <div>
+                    <%= render partial: "prompts/show", locals: {prompt: prompt} %>
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
-    </ul>
+    </div>
 <% end %>
 </div>
