@@ -2,39 +2,34 @@
 <h1> My connections </h1>
 <br>
 <h2> <%= link_to 'New Connection', new_connection_path %></h2>
-<ul>
+<div class="grid-container">
 
-        <li>
-            <%= link_to "Work", connections_work_path %>
-        </li>
-        <li> 
-            <%= link_to "Family", connections_family_path %>
-        </li>
-        <li>
-            <%= link_to "Friends", connections_friends_path %>
-        </li>
-        <li>
-            <%= link_to "Church", connections_church_path %>
-        </li>
-        <li>
-            <%= link_to "Entrepenurship", connections_entrepenurship_path %>
-        </li>
-</ul>
+            <div><%= link_to "Work", connections_work_path %></div>
+ 
+            <div><%= link_to "Family", connections_family_path %></div>
 
+            <div><%= link_to "Friends", connections_friends_path %></div>
+
+            <div><%= link_to "Church", connections_church_path %></div>
+
+            <div><%= link_to "Entrepenurship", connections_entrepenurship_path %></div>
+
+
+</div>
 <div>
+<div class="grid-container">
         <% @prompts.each do |p| %>
-    <ul>
-        <li>
-        <%= p.person_of_interest.name %>
-        <br>
+        <div><%= p.person_of_interest.name %>
+            <br>
             <%= p.description %>
             <br>
             <%= p.due_date %>
-            <br> 
-            <%= p.notes %>
-        </li>
-    </ul>
+            <br>
+            <p><%= p.notes %></p>
+
+            </div>
     <% end %>
+</div>
 
 
 </div>

@@ -6,33 +6,35 @@
         <%= link_to "Edit their info", edit_connection_person_of_interest_path(connection.id, @person_of_interest.id), :class =>"update" %>
     <% end %>
 <% end %>
-<div class="grid-contrainer">
-    <div class="grid-item 1">
+<div class="grid-container">
+    <div>
         <%= @person_of_interest.email %>
     </div>
 
-    <div class="grid-item 2">
+    <div>
         <%= @person_of_interest.phone_number %>
     </div>
 
-    <div class="grid-item 3">
+    <div>
      <%= @person_of_interest.occupation %>
     </div>
 
-    <div class="grid-item 4">
+    <div>
         <%= @person_of_interest.goals %>
     </div>
 
 </div>
-<div class="grid-container">
+<div>
+<div >
 <%= render partial: 'prompts/form', locals: {person_of_interest: @person_of_interest} %>
-<br>
+</div>
+
 <% if !@person_of_interest.prompts.empty?  %>
     <ul>
     <% @prompts.each do |prompt| %>
         <%if has_permission(prompt)%>
         <li>
-            <div class="grid-item">
+            <div>
                 <%= render partial: "prompts/show", locals: {prompt: prompt} %>
             </div>
         </li>
