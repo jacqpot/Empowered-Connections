@@ -16,7 +16,7 @@ class PromptsController < ApplicationController
         if @prompt.save 
             redirect_to person_of_interest_path(@prompt.person_of_interest)
         else 
-            flash.now[:errors] = "please make sure each field is filled out correctly"
+            flash.now[:errors] = "Please make sure each field is filled out correctly."
             redirect_to person_of_interest_path
         end
     end
